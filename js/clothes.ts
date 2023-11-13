@@ -1,33 +1,42 @@
-"use strict";
-class Clothes {
-    constructor(Name, Type, Properties, Temperature) {
+class Clothes{
+
+    private name:String
+    private type:String
+    private properties:object
+    private temperature:Number
+
+    constructor(Name:String, Type:String, Properties:object, Temperature:Number) {
         this.name = Name;
         this.type = Type;
         this.properties = Properties;
         this.temperature = Temperature;
     }
-    GetName() {
+
+    GetName(){
         return this.name;
     }
-    SetName(Name) {
+    SetName(Name:String){
         this.name = Name;
     }
-    GetType() {
+
+    GetType(){
         return this.type;
     }
-    SetType(Type) {
+    SetType(Type:String){
         this.type = Type;
     }
-    GetProperties() {
+
+    GetProperties(){
         return this.properties;
     }
-    SetProperties(Properties) {
+    SetProperties(Properties:object){
         this.properties = Properties;
     }
-    GetTemperature() {
+
+    GetTemperature(){
         return this.temperature;
     }
-    SetTemperature(Temperature) {
+    SetTemperature(Temperature:number){
         this.temperature = Temperature;
     }
 }
