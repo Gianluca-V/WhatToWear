@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded",async () => {
         const temperatureMax = data.forecast.forecastday[0].day.mintemp_c;
         const temperatureMinElement = document.querySelector(".temperature__min");
         const temperatureMaxElement = document.querySelector(".temperature__max");
-        temperatureMaxElement.textContent = temperatureMax;
-        temperatureMinElement.textContent = temperatureMin;
+        temperatureMaxElement.textContent = temperatureMax + "°C";
+        temperatureMinElement.textContent = temperatureMin + "°C";
 
         const temperatureConditionElement = document.querySelector(".temperature__condition");
         const temperatureCondition = data.forecast.forecastday[0].day.condition.text;
@@ -18,7 +18,23 @@ document.addEventListener("DOMContentLoaded",async () => {
         const iconElement = document.querySelector(".weather-icon__image");
         const icon = data.forecast.forecastday[0].day.condition.icon;
         iconElement.setAttribute("src",icon);
-    } catch (error) {
+
+        const locationElement = document.querySelector(".location__city");
+        const location = data.location.name + ", " + data.location.country;
+        locationElement.textContent = location;
+
+
+        const timeElement = document.querySelector(".location__time");
+        const localtimeEpoch = data.location.localtime_epoch;
+        const date = new Date(localtimeEpoch * 1000);
+        const dayOfWeek = date.getDay();
+
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = daysOfWeek[dayOfWeek];
+        timeElement.textContent =dayName;
+        
+    }
+    catch(error){
         console.error(error);
     }
 });
