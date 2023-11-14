@@ -35,16 +35,37 @@
             <div class="form__group">
                 <label for="type" class="form__label">Type:</label>
                 <select class="form__input" name="type" id="type">
-                    <option value="jacket">Jacket</option>
-                    <option value="tshirt">T-shirt</option>
-                    <option value="pants">Pants</option>
-                    <option value="dress">Dress</option>
-                    <option value="shirt">Shirt</option>
+                    <option value="sandals">Sandals</option>
+                    <option value="boots">Boots</option>
+                    <option value="trousers">Trousers</option>
                     <option value="shoes">Shoes</option>
-                    <option value="hat">Hat</option>
                     <option value="shorts">Shorts</option>
+                    <option value="pants">Pants</option>
+                    <option value="skirt">Skirt</option>
+                    <option value="jacket">Jacket</option>
+                    <option value="t-shirt">T-shirt</option>
+                    <option value="shirt">Shirt</option>
+                    <option value="sweatshirt">Sweatshirt</option>
+                    <option value="smock">Smock</option>
                     <!-- Add more options for different types of clothes as needed -->
                 </select>
+            </div>
+            <div class="form__group">
+                <label class="form__label">Properties:</label>
+                <div class="form__properties">
+                    <label class="form__properties--label">
+                        Hood
+                        <input type="checkbox" class="form__input" name="hood" value="false">
+                    </label>
+                    <label class="form__properties--label">
+                        Waterproof
+                        <input type="checkbox" class="form__input" name="waterProff" value="false">
+                    </label>
+                    <label class="form__properties--label">
+                        Windproof
+                        <input type="checkbox" class="form__input" name="windProff" value="false">
+                    </label>
+                </div>
             </div>
             <div class="form__group">
                 <label for="temperature" class="form__label">Temperatura:</label>
@@ -81,7 +102,7 @@
             </ul>
         </div>
     </footer>
-</body>
 
-<script type="module" src="js/clothesTable.js"></script>
+    <script type="module" src="js/clothesTable.js"></script>
+</body>
 </html>

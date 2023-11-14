@@ -1,3 +1,4 @@
+import * as ClothesClasses from "./clothes.js";
 async function PopulateTable() {
     const clothesData = await JSON.parse(localStorage.getItem('clothes'));
     const clothesTableBody = document.querySelector(".table__body");
@@ -36,11 +37,20 @@ async function PopulateTable() {
         const submitButton = document.querySelector(".form__input--submit");
         submitButton.addEventListener("click", async (e) => {
             e.preventDefault();
-            const object = {
-                name: document.querySelector(".form__input#cuerpo").value,
-                type: document.querySelector(".form__input#imagen").value,
-                temperature: document.querySelector(".form__input#imagen").value,
-            };
+            const name = document.querySelector(".form__input#name").value;
+            const type = document.querySelector(".form__input#type").value;
+            const temperature = document.querySelector(".form__input#temperature").value;
+            const newCloth = new ClothesClasses.Clothes(name, type, temperature);
+            if (localStorage.getItem("clothes")) {
+                const storedClothes = JSON.parse(localStorage.getItem("clothes"));
+                storedClothes.append(newCloth);
+                console.log(storedClothes);
+            }
+            else {
+                const clothesToStore = JSON.stringify("[" + newCloth + "]");
+                localStorage.setItem("clothes", clothesToStore);
+            }
+            //localStorage.setItem("clothes","");
             formContainer.close();
             PopulateTable();
         });

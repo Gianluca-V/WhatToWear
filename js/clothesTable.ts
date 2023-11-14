@@ -1,3 +1,5 @@
+import * as ClothesClasses from "./clothes.js";
+
 async function PopulateTable() {
     const clothesData = await JSON.parse(localStorage.getItem('clothes'));
 
@@ -43,13 +45,23 @@ async function PopulateTable() {
         const submitButton = document.querySelector(".form__input--submit");
         submitButton.addEventListener("click", async (e) => {
             e.preventDefault();
+            const name = document.querySelector(".form__input#name").value;
+            const type = document.querySelector(".form__input#type").value;
+            const temperature = document.querySelector(".form__input#temperature").value;
 
+            const newCloth = new ClothesClasses.Clothes(name,type,temperature);
 
-            const object = {
-                name: document.querySelector(".form__input#cuerpo").value,
-                type: document.querySelector(".form__input#imagen").value,
-                temperature: document.querySelector(".form__input#imagen").value,
+            if(localStorage.getItem("clothes")){
+                const storedClothes = JSON.parse(localStorage.getItem("clothes"));
+                storedClothes.append(newCloth);
+                console.log(storedClothes);
             }
+            else{
+                const clothesToStore = JSON.stringify("["+newCloth+"]");
+                localStorage.setItem("clothes",clothesToStore);
+            }
+            
+            //localStorage.setItem("clothes","");
 
             formContainer.close();
             PopulateTable();
@@ -76,7 +88,7 @@ PopulateTable();
 
 function removeAllEventListeners(element) {
     const clonedElement = element.cloneNode(true); // Create a clone of the element
-  
+
     // Replace the element with its clone to remove all event listeners
     element.parentNode.replaceChild(clonedElement, element);
-  }
+}

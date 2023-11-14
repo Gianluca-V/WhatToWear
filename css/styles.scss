@@ -175,14 +175,14 @@ body{
 
 
 .add-button {
-    background-color: #0d930d;
+    background-color: #fff;
     font-size: 2.5rem;
     border-radius: 1rem;
     width: 150px;
     margin: 1rem;
     transition: background-color 0.125s ease;
     &:hover {
-        background-color: #17ba17;
+        background-color: #3498db;
     }
 }
 
@@ -197,6 +197,7 @@ body{
         @include flex(row, space-between, center);
     }
     &__caption {
+        color:white;
         text-align: left;
         font-size: clamp(1.75rem, 5vw, 2.5rem);
         font-weight: 700;
@@ -222,6 +223,10 @@ body{
     }
     &__image {
         max-width: 100px;
+    }
+    &__button{
+        border: none;
+        box-shadow: none;
     }
     &__svg {
         font-size: clamp(1.33rem, 3vw, 2rem);
@@ -318,6 +323,12 @@ body{
                 color: white;
                 cursor: pointer;
             }
+        }
+    }
+    &__properties{
+        @include flex(column);
+        &--label{
+            
         }
     }
 }
