@@ -71,7 +71,6 @@ body{
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    
 }
 
 .location {
@@ -140,3 +139,38 @@ body{
         margin: 5px 0;
     }
 }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-content li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
