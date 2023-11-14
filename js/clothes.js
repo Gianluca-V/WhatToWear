@@ -1,5 +1,9 @@
 "use strict";
 class Clothes {
+    name;
+    type;
+    properties;
+    temperature;
     constructor(Name, Type, Properties, Temperature) {
         this.name = Name;
         this.type = Type;

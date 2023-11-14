@@ -1,3 +1,3 @@
-import { WheaterAPI } from "./wheater"; 
+import { WheaterAPI } from "./wheater.js"; 
 
-WheaterAPI.GetData();
+WheaterAPI.GetData(); 
