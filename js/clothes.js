@@ -34,3 +34,5 @@ class Clothes {
         this.temperature = Temperature;
     }
 }
+class ClothesTop extends Clothes {
+}
