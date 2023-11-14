@@ -216,13 +216,13 @@ body {
   fill: #4682b4;
 }
 .table__svg--edit:hover {
-  fill: hsl(207deg, 49%, 39%);
+  fill: hsl(207, 49%, 39%);
 }
 .table__svg--delete {
   fill: #dc143c;
 }
 .table__svg--delete:hover {
-  fill: hsl(348deg, 89%, 37%);
+  fill: hsl(348, 89%, 37%);
 }
 @media (width < 735px) {
   .table {
