@@ -1,9 +1,47 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background-color: #3498db;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 100px; /* Ajusta según el tamaño de tu logo */
+}
+
+.header-content {
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 2em;
+  margin: 10px 0;
+}
+
+.header-content p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: #3498db;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 a {
@@ -16,8 +54,12 @@ button {
   background: none;
 }
 
+body {
+  background-color: #102A94;
+}
+
 .app-container {
-  background-color: cornflowerblue;
+  background-color: #fff;
   max-width: 300px;
   margin: 20px auto;
   border-radius: 10px;
