@@ -1,26 +1,37 @@
-class WheaterAPI {
+class WeatherAPI {
     static meteorologicalData = {};
     static async success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        const data = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9370370ea66246b8afb171129230611&q=${latitude},${longitude}`)
-            .then((response) => { return response.json(); })
-            .catch((error) => { console.error(error); });
-        this.meteorologicalData = data;
+        try {
+            const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=9370370ea66246b8afb171129230611&q=${latitude},${longitude}`);
+            const data = await response.json();
+            WeatherAPI.meteorologicalData = data;
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
     static error() {
         console.log("Unable to retrieve your location");
     }
     static GetData() {
-        if (!navigator.geolocation) {
-            console.log("Geolocation is not supported by your browser");
-            return false;
-        }
-        else {
+        return new Promise((resolve, reject) => {
+            if (!navigator.geolocation) {
+                console.log("Geolocation is not supported by your browser");
+                reject("Geolocation not supported");
+                return false;
+            }
             console.log("Locating…");
-            navigator.geolocation.getCurrentPosition(this.success, this.error);
-            return this.meteorologicalData;
-        }
+            navigator.geolocation.getCurrentPosition((position) => {
+                WeatherAPI.success(position).then(() => {
+                    resolve(WeatherAPI.meteorologicalData);
+                });
+            }, () => {
+                WeatherAPI.error();
+                reject("Error retrieving geolocation");
+            });
+        });
     }
 }
-export { WheaterAPI };
+export { WeatherAPI };
