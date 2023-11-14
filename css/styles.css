@@ -155,8 +155,33 @@ body {
   text-decoration: none;
 }
 
+.header-button {
+  display: flex;
+  align-items: center;
+}
+
+.header-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+.header-btn:hover {
+  background-color: #2980b9;
+}
+
+h3 {
+  color: white;
+  display: flex;
+}
+
 .add-button {
-  background-color: #0d930d;
+  background-color: white;
   font-size: 2.5rem;
   border-radius: 1rem;
   width: 150px;
@@ -164,7 +189,7 @@ body {
   transition: background-color 0.125s ease;
 }
 .add-button:hover {
-  background-color: #17ba17;
+  background-color: #3498db;
 }
 
 .table {
