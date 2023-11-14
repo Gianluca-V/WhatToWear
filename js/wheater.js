@@ -20,7 +20,6 @@ class WeatherAPI {
             if (!navigator.geolocation) {
                 console.log("Geolocation is not supported by your browser");
                 reject("Geolocation not supported");
-                return false;
             }
             console.log("Locating…");
             navigator.geolocation.getCurrentPosition((position) => {
