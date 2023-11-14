@@ -18,7 +18,23 @@ document.addEventListener("DOMContentLoaded",async () => {
         const iconElement = document.querySelector(".weather-icon__image");
         const icon = data.forecast.forecastday[0].day.condition.icon;
         iconElement.setAttribute("src",icon);
-    } catch (error) {
+
+        const locationElement = document.querySelector(".location__city");
+        const location = data.location.name + ", " + data.location.country;
+        locationElement.textContent = location;
+
+
+        const timeElement = document.querySelector(".location__time");
+        const localtimeEpoch = data.location.localtime_epoch;
+        const date = new Date(localtimeEpoch * 1000);
+        const dayOfWeek = date.getDay();
+
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = daysOfWeek[dayOfWeek];
+        timeElement.textContent =dayName;
+        
+    }
+    catch(error){
         console.error(error);
     }
 });
