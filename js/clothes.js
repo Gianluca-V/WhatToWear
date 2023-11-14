@@ -1,4 +1,3 @@
-"use strict";
 class Clothes {
     name;
     type;
